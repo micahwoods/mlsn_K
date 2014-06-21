@@ -31,7 +31,7 @@ shinyServer(function(input, output) {
     paste("If you apply", input$nitrogen, "grams of N per square meter
           to", input$select, "in a soil with", input$soil, "ppm of K, the annual
           K fertilizer requirement is",
-          fertilizer, "grams of K per square meter.")
+          round(fertilizer, 0), "grams of K per square meter.")
   })
 
 
