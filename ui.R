@@ -17,7 +17,7 @@ shinyUI(fluidPage(
     sidebarPanel(
       
       selectInput("select", label = h5("Select grass species"), 
-                  choices = list("bentgrass",
+                  choices = c("bentgrass",
                                  "annual bluegrass",
                                  "bent/poa mix",
                                  "fine fescue",
@@ -25,8 +25,8 @@ shinyUI(fluidPage(
                                  "perennial ryegrass",
                                  "bermudagrass",
                                  "zoysia",
-                                 "seashore paspalum"
-                                 )
+                                 "seashore paspalum"),
+                                 selected = "zoysia"          
       ),
     br(),
     br(),
@@ -49,7 +49,7 @@ shinyUI(fluidPage(
  
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("distPlot")
+      textOutput("text1")
     )
 
 )
