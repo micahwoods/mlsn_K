@@ -28,7 +28,11 @@ shinyServer(function(input, output) {
     paste("If you apply", input$nitrogen, "grams of N per square meter
           to", input$select, "in a soil with", input$soil, "ppm of K, the annual
           K fertilizer requirement is",
-          round(fertilizer, 0), "grams of K per square meter.")
+          round(fertilizer, 0), "grams of K per square meter.
+          This is the minimum amount required to keep the soil K
+          at or above the MLSN guideline. A negative value
+          means the soil has enough K to supply the grass with all the
+          K it will use, while still remaining above the guideline.")
   })
 
 

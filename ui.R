@@ -1,5 +1,6 @@
 
 # This makes a Shiny app to calculate K requirement
+# based on MLSN guidelines for turfgrass.
 
 library(shiny)
 
