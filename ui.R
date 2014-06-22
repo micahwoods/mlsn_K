@@ -70,15 +70,13 @@ shinyUI(fluidPage(
       "This plot shows how the K fertilizer requirement will change with soil
       test K for a selected grass species and N rate.",
       br(), br(),
-      a(href = "http://www.asianturfgrass.com", 
-        img(src = "atc.png", height = 75, width = 75)),
+      a(href = "http://www.paceturf.org", 
+        img(src = "pace.png", height = 130, width = 130)),
       a(href = "http://www.paceturf.org/journal/global_soil_survey", 
-        img(src = "gss.png", height = 105, width = 105))
-      
-      
-    
+        img(src = "gss.png", height = 115, width = 115)),
+      a(href = "http://www.asianturfgrass.com", 
+        img(src = "atc.png", height = 85, width = 85))
     )
-
 )
 ))
 
