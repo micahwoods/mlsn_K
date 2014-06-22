@@ -4,6 +4,8 @@
 
 library(shiny)
 
+# this outlines and creates the user interface and input options
+
 shinyUI(fluidPage(
 
   # Application title
@@ -23,30 +25,34 @@ shinyUI(fluidPage(
                                  "bermudagrass",
                                  "zoysia",
                                  "seashore paspalum"),
-                                 selected = "zoysia"          
+                                 selected = "bentgrass"          
       ),
+    br(),
     br(),
     br(),
       sliderInput("soil",
                   "Soil test K (ppm):",
                   min = 0,
-                  max = 400,
+                  max = 200,
                   value = 35
                   ),
     
     br(),
     br(),
+    br(),
     sliderInput("nitrogen",
                 "Annual N application (grams per square meter):",
                 min = 0,
-                max = 75,
-                value = 16
+                max = 60,
+                value = 20
                 )
     ),
  
-    # Show a plot of the generated distribution
+    # For the main panel, show first the text description,
+    # then a plot that renders according to the changing inputs
     mainPanel(
-      textOutput("text1")
+      textOutput("text1"),
+      plotOutput("plot1")
     )
 
 )
