@@ -29,7 +29,6 @@ shinyUI(fluidPage(
       ),
     br(),
     br(),
-    br(),
       sliderInput("soil",
                   "Soil test K (ppm):",
                   min = 0,
@@ -39,20 +38,45 @@ shinyUI(fluidPage(
     
     br(),
     br(),
-    br(),
     sliderInput("nitrogen",
                 "Annual N application (grams per square meter):",
                 min = 0,
                 max = 60,
                 value = 20
-                )
+                ),
+    br(),
+    br(),
+   "These calculations are based on the minimum levels for 
+    sustainable nutrition", a("(MLSN guidelines).", 
+          href = "http://www.paceturf.org/journal/minimum_level_for_sustainable_nutrition"), 
+  "You can participate in the development and refinement of new, more 
+   sustainable soil nutrient guidelines for turfgrass, 
+    by submitting samples from good-performing
+   turfgrass at your location to the MLSN Project", a("Global Soil Survey.", 
+    href = "http://www.paceturf.org/journal/global_soil_survey")
     ),
  
     # For the main panel, show first the text description,
     # then a plot that renders according to the changing inputs
     mainPanel(
       textOutput("text1"),
-      plotOutput("plot1")
+      br(),
+      "This is the amount required to keep the soil K
+      at or above the MLSN guideline. A negative value
+      means the soil has enough K to supply the grass with all the
+      K it will use, while still remaining above the guideline.",
+      plotOutput("plot1"),
+      br(), 
+      "This plot shows how the K fertilizer requirement will change with soil
+      test K for a selected grass species and N rate.",
+      br(), br(),
+      a(href = "http://www.asianturfgrass.com", 
+        img(src = "atc.png", height = 75, width = 75)),
+      a(href = "http://www.paceturf.org/journal/global_soil_survey", 
+        img(src = "gss.png", height = 105, width = 105))
+      
+      
+    
     )
 
 )

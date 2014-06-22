@@ -38,11 +38,8 @@ shinyServer(function(input, output) {
     paste("If you apply", input$nitrogen, "grams of N per square meter
           to", input$select, "in a soil with", input$soil, "ppm of K, the annual
           K fertilizer requirement is",
-          round(fertilizer, 0), "grams of K per square meter.
-          This is the minimum amount required to keep the soil K
-          at or above the MLSN guideline. A negative value
-          means the soil has enough K to supply the grass with all the
-          K it will use, while still remaining above the guideline.")
+          round(fertilizer, 0), "grams of K per square meter.")
+          
   })
   
   output$plot1 <- renderPlot({
@@ -66,6 +63,7 @@ shinyServer(function(input, output) {
     
     ggplot(data = plotdata, aes(x = soilk, y = fert)) +
       geom_line() + 
+      geom_abline(intercept = 0, slope = 0, colour = "blue") +
       geom_point(aes(x = test, y = ((35 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
                  size = 5, color = "Dark Green") +
       labs(x = "Soil Test K", 
