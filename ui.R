@@ -33,7 +33,7 @@ shinyUI(fluidPage(
                   "Soil test K (ppm):",
                   min = 0,
                   max = 200,
-                  value = 35
+                  value = 37
                   ),
     
     br(),

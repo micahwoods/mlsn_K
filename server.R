@@ -33,7 +33,7 @@ shinyServer(function(input, output) {
     # convert all to g/m2 by the 6.7 factor based on 10 cm
     # deep rootzone with bulk density of 1.5
     
-    fertilizer <- (35 / 6.7) + (input$nitrogen / kratio) - (input$soil / 6.7) + 1
+    fertilizer <- (37 / 6.7) + (input$nitrogen / kratio) - (input$soil / 6.7) + 1
     
     paste("If you apply", input$nitrogen, "grams of N per square meter
           to", input$select, "in a soil with", input$soil, "ppm of K, the annual
@@ -57,14 +57,14 @@ shinyServer(function(input, output) {
     
     
     
-    fert <- (35 / 6.7) + (input$nitrogen / kratio) - (0:200 / 6.7) + 1
+    fert <- (37 / 6.7) + (input$nitrogen / kratio) - (0:200 / 6.7) + 1
     plotdata <- as.data.frame(cbind(0:200, fert, input$soil, input$nitrogen / kratio))
     colnames(plotdata) <- c("soilk", "fert", "test", "nitrogen")
     
     ggplot(data = plotdata, aes(x = soilk, y = fert)) +
       geom_line() + 
       geom_abline(intercept = 0, slope = 0, colour = "blue") +
-      geom_point(aes(x = test, y = ((35 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
+      geom_point(aes(x = test, y = ((37 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
                  size = 5, color = "Dark Green") +
       labs(x = "Soil Test K", 
            y = expression(paste('K fertilizer requirement ' (g/m^{2})))) +
