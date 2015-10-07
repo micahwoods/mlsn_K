@@ -1,7 +1,8 @@
 # This is the server file that renders the output
 
 library(shiny)
-library(ggplot2)
+#library(ggplot2)
+library(ggvis)
 
 shinyServer(function(input, output) {
   
@@ -61,14 +62,14 @@ shinyServer(function(input, output) {
     plotdata <- as.data.frame(cbind(0:200, fert, input$soil, input$nitrogen / kratio))
     colnames(plotdata) <- c("soilk", "fert", "test", "nitrogen")
     
-    ggplot(data = plotdata, aes(x = soilk, y = fert)) +
-      geom_line() + 
-      geom_abline(intercept = 0, slope = 0, colour = "blue") +
-      geom_point(aes(x = test, y = ((37 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
-                 size = 5, color = "Dark Green") +
-      labs(x = "Soil Test K", 
-           y = expression(paste('K fertilizer requirement ' (g/m^{2})))) +
-      theme_minimal(base_size = 18)
+ #   ggplot(data = plotdata, aes(x = soilk, y = fert)) +
+#      geom_line() + 
+#      geom_abline(intercept = 0, slope = 0, colour = "blue") +
+#      geom_point(aes(x = test, y = ((37 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
+#                 size = 5, color = "Dark Green") +
+#      labs(x = "Soil Test K", 
+#           y = expression(paste('K fertilizer requirement ' (g/m^{2})))) +
+#      theme_minimal(base_size = 18)
     
   })
 
