@@ -1,8 +1,8 @@
 # This is the server file that renders the output
 
 library(shiny)
-#library(ggplot2)
-library(ggvis)
+library(ggplot2)
+#library(ggvis)
 
 shinyServer(function(input, output) {
   
@@ -62,14 +62,29 @@ shinyServer(function(input, output) {
     plotdata <- as.data.frame(cbind(0:200, fert, input$soil, input$nitrogen / kratio))
     colnames(plotdata) <- c("soilk", "fert", "test", "nitrogen")
     
- #   ggplot(data = plotdata, aes(x = soilk, y = fert)) +
-#      geom_line() + 
-#      geom_abline(intercept = 0, slope = 0, colour = "blue") +
-#      geom_point(aes(x = test, y = ((37 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
-#                 size = 5, color = "Dark Green") +
-#      labs(x = "Soil Test K", 
-#           y = expression(paste('K fertilizer requirement ' (g/m^{2})))) +
-#      theme_minimal(base_size = 18)
+    ### testing from here
+    
+    
+   ggplot(data = plotdata, aes(x = soilk, y = fert)) +
+      geom_line(linetype = 'dashed', colour = 'dodgerblue') + 
+      geom_abline(intercept = 0, slope = 0, colour = "black") +
+      geom_point(aes(x = test, y = ((37 / 6.7) + (nitrogen) - (test / 6.7) + 1)),
+                 size = 4, shape = 21, fill = "#3f7300", colour = '#E6E8C3', alpha = 0.7) +
+      labs(x = "Soil Test K (ppm)", 
+           y = expression(paste('K fertilizer requirement ' (g/m^{2})))) +
+      theme_minimal(base_size = 18) +
+     annotate('label', x = input$soil + 4, y = ((37 / 6.7) + (input$nitrogen / kratio) - (input$soil / 6.7) + 2),
+              hjust = 0, colour = '#3f7300',
+              label = 'K fertilizer recommendation') +
+     annotate('label', x = input$soil + 40, y = ((37 / 6.7) + (input$nitrogen / kratio) - ((input$soil + 40) / 6.7) - 1),
+              hjust = 1, colour = 'dodgerblue',
+              label = 'K recommendation\nchanges with soil K') +
+     annotate("segment", x = input$soil + 40, xend = input$soil + 52,
+              y = ((37 / 6.7) + (input$nitrogen / kratio) - ((input$soil + 40) / 6.7) - 2),
+              yend = ((37 / 6.7) + (input$nitrogen / kratio) - ((input$soil + 40) / 6.7) - 1), 
+              colour = "dodgerblue",  size = 0.5, arrow=arrow(type = 'closed',
+                                                                     length = unit(0.3, 'cm')))
+   
     
   })
 

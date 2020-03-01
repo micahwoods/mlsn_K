@@ -48,12 +48,9 @@ shinyUI(fluidPage(
     br(),
    "These calculations are based on the minimum levels for 
     sustainable nutrition", a("(MLSN guidelines).", 
-          href = "http://www.paceturf.org/journal/minimum_level_for_sustainable_nutrition"), 
-  "You can participate in the development and refinement of new, more 
-   sustainable soil nutrient guidelines for turfgrass, 
-    by submitting samples from good-performing
-   turfgrass at your location to the MLSN Project", a("Global Soil Survey.", 
-    href = "http://www.paceturf.org/journal/global_soil_survey")
+          href = "https://www.paceturf.org/index.php/journal/minimum_level_for_sustainable_nutrition"), 
+  "For details about the MLSN Project, please download the ", a("MLSN Cheat Sheet.", 
+    href = "http://files.asianturfgrass.com/mlsn_cheat_sheet.pdf")
     ),
  
     # For the main panel, show first the text description,
@@ -70,11 +67,9 @@ shinyUI(fluidPage(
       "This plot shows how the K fertilizer requirement will change with soil
       test K for a selected grass species and N rate.",
       br(), br(),
-      a(href = "http://www.paceturf.org", 
-        img(src = "pace.png", height = 130, width = 130)),
-      a(href = "http://www.paceturf.org/journal/global_soil_survey", 
-        img(src = "gss.png", height = 115, width = 115)),
-      a(href = "http://www.asianturfgrass.com", 
+      a(href = "https://www.paceturf.org", 
+        img(src = "pace.png", width = 300, height = 41)),
+      a(href = "https://www.asianturfgrass.com", 
         img(src = "atc.png", height = 85, width = 85))
     )
 )
